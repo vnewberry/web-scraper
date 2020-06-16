@@ -17,7 +17,7 @@ module.exports = function (app) {
 
         // Add the text and href of every link, and save them as properties of the result object
         result.headline = $(this).text();
-        result.URL = "testURL";
+        result.URL = $(this).find("img").attr("src");
         // result.URL =
         // // $(this)
         // //   .children("a")
@@ -42,6 +42,7 @@ module.exports = function (app) {
     });
   });
 
+//grab all articles from database and send to client
   app.get("/articles", function (req, res) {
     db.Article.find({})
       .then(function (data) {
@@ -55,6 +56,7 @@ module.exports = function (app) {
    
   });
 
+//clear database of articles
   app.get("/clear", function(req, res) {
     db.Article.deleteMany()
     .then(function(data) {
