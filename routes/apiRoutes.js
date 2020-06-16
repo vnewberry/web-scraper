@@ -16,7 +16,7 @@ module.exports = function (app) {
         var result = {};
 
         // Add the text and href of every link, and save them as properties of the result object
-        result.headline = $(this).text();
+        result.headline = $(this).children("div.views-field-title").text();
         result.URL = $(this).find("a").attr("href");
         // result.URL =
         // // $(this)
