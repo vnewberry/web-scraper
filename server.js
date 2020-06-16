@@ -9,7 +9,7 @@ const axios = require("axios");
 const cheerio = require("cheerio");
 
 // Requiring all models
-// const db = require("./models");
+const db = require("./models");
 
 // Initializing the port
 const PORT = process.env.PORT || 3000;
@@ -35,10 +35,10 @@ app.engine("handlebars", exphbs({
 app.set('views', path.join(__dirname, '/views'));
 app.set("view engine", "handlebars");
 
-// require('./routes/apiRoutes')(app);
+require('./routes/apiRoutes')(app);
 require('./routes/htmlRoutes')(app);
+
 // Connecting to the Mongo DB
-// mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
 mongoose.connect(MONGODB_URI);
