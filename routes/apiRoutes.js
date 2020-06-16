@@ -44,14 +44,25 @@ module.exports = function (app) {
 
   app.get("/articles", function (req, res) {
     db.Article.find({})
-      .then(function (dbArticle) {
-        // If all Users are successfully found, send them back to the client
-        res.json(dbArticle);
+      .then(function (data) {
+        // If articles are found, send them back to the client
+        res.json(data);
       })
       .catch(function (err) {
         // If an error occurs, send the error back to the client
         res.json(err);
       });
-    // TODO: Finish the route so it grabs all of the articles
+   
+  });
+
+  app.get("/clear", function(req, res) {
+    db.Article.deleteMany()
+    .then(function(data) {
+      res.redirect("/");
+    })
+    .catch(function(err) {
+      res.json(err);
+    });
+    
   });
 };
