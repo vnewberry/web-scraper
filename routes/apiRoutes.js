@@ -17,13 +17,13 @@ module.exports = function (app) {
 
         // Add the text and href of every link, and save them as properties of the result object
         result.headline = $(this).text();
-        result.URL = $(this).find("img").attr("src");
+        result.URL = $(this).find("a").attr("href");
         // result.URL =
         // // $(this)
         // //   .children("a")
         // //   .attr("href");
         result.summary = "testsummary";
-        result.image = "testimage";
+        result.image = $(this).find("img").attr("src");
 
         // Create a new Article using the `result` object built from scraping
         db.Article.create(result)
