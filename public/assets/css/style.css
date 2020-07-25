@@ -80,6 +80,9 @@ body {
   border-radius: 0;
   box-shadow: 3px 3px 20px lightslategrey;
   margin: 20px 0;
+  float: left;
+  height: 500px;
+  
 }
 
 .card .card-header {
@@ -167,6 +170,15 @@ textarea {
   position: relative;
   bottom: 10px;
 }
-#dynamic{
-  width: 200px;
+
+.article-image{
+  /* object-fit: cover; */
+  padding: 50px;
+  height: 105px;
+ 
+  
+  
+}
+.card-img-top{
+  height: 50%;
 }

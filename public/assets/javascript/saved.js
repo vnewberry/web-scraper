@@ -9,7 +9,9 @@ $(document).ready(function() {
     $(document).on("click", ".btn.save", handleNoteSave);
     $(document).on("click", ".btn.note-delete", handleNoteDelete);
     $(".clear").on("click", handleArticleClear);
-  
+
+   
+
     function initPage() {
       // Empty the article container, run an AJAX request for any saved headlines
       $.get("/api/headlines?saved=true").then(function(data) {
@@ -216,5 +218,7 @@ $(document).ready(function() {
           initPage();
         });
     }
+    
+    initPage()
   });
   
