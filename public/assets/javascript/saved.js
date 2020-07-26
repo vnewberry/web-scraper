@@ -40,34 +40,24 @@ $(document).ready(function() {
       articleContainer.append(articleCards);
     }
   
+    
     function createCard(article) {
       // This function takes in a single JSON object for an article/headline
       // It constructs a jQuery element containing all of the formatted HTML for the
       // article card
-      var card = $("<div class='card'>");
-      var cardHeader = $("<div class='card-header'>").append(
-        $("<h3>").append(
-          $("<a class='article-link' target='_blank' rel='noopener noreferrer'>")
-            .attr("href", article.url)
-            .text(article.headline),
-          $("<a class='btn btn-danger delete'>Delete From Saved</a>"),
-          $("<a class='btn btn-info notes'>Article Notes</a>")
-        )
-      );
-      var cardImage = $("<img>")
-    .attr({
-      src: article.image,
-      alt:article.headline
-    });
+      var card = $(`<div class="card" style="width: 18rem;">
+      <img class="card-img-top article-image" src=${article.image} alt=${article.headline}>
+      <div class="card-body">
+        <h5 class="card-title">${article.headline}</h5>
+        <p class="card-text">${article.summary}</p>
+        <a href=${article.url} class="btn btn-primary">Link</a>
+        <a class='btn btn-danger delete'>Delete</a>
+        <a class='btn btn-info notes'>Notes</a>
+      </div>
+    </div>`);
   
-      var cardBody = $("<div class='card-body'>").text(article.summary);
-  
-      card.append(cardHeader, cardBody, cardImage);
-  
-      // We attach the article's id to the jQuery element
-      // We will use this when trying to figure out which article the user wants to remove or open notes for
       card.data("_id", article._id);
-      // We return the constructed card jQuery element
+    
       return card;
     }
 

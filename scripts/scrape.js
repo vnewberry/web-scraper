@@ -17,9 +17,9 @@ const scrape = function () {
 
      
       let sum = $(this).children("div.views-field-field-subtitle")
-      .text();
-      console.log(sum);
-    //   $(this).find("p").text().trim();
+      .text().trim();
+      // console.log(sum);
+    //   $(this).find("p").text()
 
         let image = $(this).find("img").attr("src");
 

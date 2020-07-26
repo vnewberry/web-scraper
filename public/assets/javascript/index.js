@@ -47,6 +47,7 @@ $(document).ready(function() {
       <h5 class="card-title">${article.headline}</h5>
       <p class="card-text">${article.summary}</p>
       <a href=${article.url} class="btn btn-primary">Link</a>
+      <a class='btn btn-success save'>Save</a>
     </div>
   </div>`);
 
@@ -80,10 +81,10 @@ $(document).ready(function() {
     // Using a joined array of HTML string data because it's easier to read/change than a concatenated string
     var emptyAlert = $(
       [
-        "<div class='alert alert-warning text-center'>",
+        "<div class='alert alert-warning text-center '>",
         "<h4>Uh Oh. Looks like we don't have any new articles.</h4>",
         "</div>",
-        "<div class='card'>",
+        "<div class='card warning-card' style='widt'>",
         "<div class='card-header text-center'>",
         "<h3>What Would You Like To Do?</h3>",
         "</div>",
